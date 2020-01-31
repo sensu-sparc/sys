@@ -523,7 +523,7 @@ func main() {
 	}
 
 	// Print zsyscall_solaris_amd64.go
-	err := ioutil.WriteFile("zsyscall_solaris_amd64.go",
+	err := ioutil.WriteFile("zsyscall_solaris_sparc64.go",
 		[]byte(fmt.Sprintf(srcTemplate1, cmdLine(), buildTags(), pack, imp, textcommon)),
 		0644)
 	if err != nil {
@@ -531,10 +531,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Print zsyscall_solaris_amd64_gc.go
+	// Print zsyscall_solaris_sparc64_gc.go
 	vardecls := "\t" + strings.Join(vars, ",\n\t")
 	vardecls += " syscallFunc"
-	err = ioutil.WriteFile("zsyscall_solaris_amd64_gc.go",
+	err = ioutil.WriteFile("zsyscall_solaris_sparc64_gc.go",
 		[]byte(fmt.Sprintf(srcTemplate2, cmdLine(), buildTags(), pack, imp, dynimports, linknames, vardecls, textgc)),
 		0644)
 	if err != nil {
@@ -543,7 +543,7 @@ func main() {
 	}
 
 	// Print zsyscall_solaris_amd64_gccgo.go
-	err = ioutil.WriteFile("zsyscall_solaris_amd64_gccgo.go",
+	err = ioutil.WriteFile("zsyscall_solaris_sparc64_gccgo.go",
 		[]byte(fmt.Sprintf(srcTemplate3, cmdLine(), buildTags(), pack, cExtern, imp, textgccgo)),
 		0644)
 	if err != nil {
